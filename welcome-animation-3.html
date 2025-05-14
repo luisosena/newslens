@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <style>
+        #animation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="animation-container"></div>
+    
+    <div class="main-content" style="display: none;">
+        <h1>Your Site Content</h1>
+    </div>
+
+    <script>
+        // Load Lottie animation
+        var animation = bodymovin.loadAnimation({
+            container: document.getElementById('animation-container'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: true,
+            path: 'https://assets5.lottiefiles.com/packages/lf20_poqmycwy.json' // Replace with your JSON
+        });
+        
+        animation.addEventListener('complete', function() {
+            document.getElementById('animation-container').style.display = 'none';
+            document.querySelector('.main-content').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
